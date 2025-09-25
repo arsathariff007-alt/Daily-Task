@@ -1,0 +1,43 @@
+package calculator;
+
+
+class Overloadclass{
+	public int addition(int a,int b) {
+		int z=a+b;
+		return z;
+	}
+	public int subtraction(int c,int d) {
+		int y=c-d;
+		return y;
+	}
+	public int multiplication(int e,int f) {
+		int x=e*f;
+		return x;
+	}
+	public int division(int h,int i) {
+		int w=h/i;
+		return w;
+	}
+	
+}
+
+public class Calculator {
+
+	public static void main(String[] args) {
+	Overloadclass abc=new Overloadclass();
+	int z= abc.addition(2, 6);
+	System.out.println("addition:"+z);
+
+	int y=abc.subtraction(20, 30);
+	System.out.println("subtraction:"+y);
+
+	int x= abc.multiplication(10, 10);
+	System.out.println("multiplication:"+x);
+
+	int w= abc.division(15, 15);
+	System.out.println("division:"+w);
+	
+
+	}
+
+}
