@@ -1,0 +1,45 @@
+package HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+
+public class TaskSet {
+
+	public static void main(String[] args) {
+		Set<String> Bikes =new LinkedHashSet<String>();
+		Set<String> Brand =new LinkedHashSet<String>();
+		
+		Bikes.add("R15");
+		Bikes.add("classic 350");
+		Bikes.add("pulser 150");
+		Bikes.add("Raider");
+		Brand.add("yamaha");
+		Brand.add("Royal enfield");
+		Brand.add("bajaj");
+		Brand.add("tvs");
+		
+		Bikes.addAll(Brand);
+		System.out.println("Bikes and their Brands");
+        for (String bik:Bikes) {
+        	System.out.println(bik);
+        }
+        String SearchBikes="Access";
+        boolean isExist=Bikes.contains(SearchBikes);
+        if(isExist) {
+        	System.out.println(SearchBikes+"Bike model is available");
+        	}
+        
+        	else {
+        		System.out.println(SearchBikes+"Bike model is not available");
+                Bikes.add(SearchBikes);
+                System.out.println("Bike Model added"+Bikes);
+                
+                
+                	}
+        
+        
+        }
+
+	}
+
+
