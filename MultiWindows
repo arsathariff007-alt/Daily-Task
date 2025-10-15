@@ -1,0 +1,54 @@
+package seleniumtwo;
+
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Handling {
+
+	public static void main(String[] args)throws InterruptedException{
+
+      
+        WebDriver driver = new ChromeDriver();
+
+       
+        driver.get("https://www.hyrtutorials.com/p/window-handles-practice.html");
+
+       
+        String parentWindow = driver.getWindowHandle();
+        System.out.println("Parent Window Handle: " + parentWindow);
+        System.out.println("Parent URL: " + driver.getCurrentUrl());
+
+       
+        driver.findElement(By.xpath("//button[@id='newWindowsBtn']")).click();
+
+       
+        Set<String> allWindows = driver.getWindowHandles();
+
+       
+        for (String window : allWindows) {
+            if (!window.equals(parentWindow)) {
+                driver.switchTo().window(window); 
+                System.out.println("\nSwitched to Child Window:");
+                System.out.println("Handle ID: " + window);
+                System.out.println("Child URL: " + driver.getCurrentUrl());
+                
+                
+                Thread.sleep(2000);
+
+                
+                driver.close();
+            }
+        }
+       
+        driver.switchTo().window(parentWindow);
+        System.out.println("\nBack to Parent Window");
+        System.out.println("Parent URL: " + driver.getCurrentUrl());
+
+      
+        driver.quit();
+    }
+}
